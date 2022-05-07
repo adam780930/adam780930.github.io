@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Relaxer</title>
+</head>
+
+<body>
+    <h1>Relaxer</h1>
+    <nav>
+        <ul class="selection" id="selection">
+            <li id="circleBtn">Circle</li>
+            <li id="lineBtn">Line</li>
+            <li id="imageBtn">Image</li>
+        </ul>
+
+    </nav>
+
+    <h2 class="iniMsg" id="iniMsg">Select a mode to start</h2>
+        <div class="container" id="container">
+            <div class="circle hidden" id="circle"></div>
+            <p class="hidden" id="text"></p>
+            
+
+            <div class="pointerContainer hidden" id="pointerContainer">
+                <span class="pointer"></span>
+            </div>
+            <div class="gradientCircle hidden" id="gradientCircle">
+                
+            </div>
+            <div class="img hidden" id="img">
+                <img src="./ganyu.png" alt="">
+            </div>
+        </div>
+
+
+        
+
+    <form>
+        <input type="button" value="Return Home" onclick="history.back()">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

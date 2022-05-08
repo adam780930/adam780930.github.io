@@ -20,17 +20,17 @@ breathAnimation();
 function breathAnimation() {
     text.innerText = 'Breathe In';
     container.className = 'container grow';
-    document.getElementById('dynamicImg').src = "./in.png";
+    dynamicImg.src = "./in.png";
 
     setTimeout(() => {
         text.innerText = 'Hold';
-        document.getElementById('dynamicImg').src = "./hold.png";
+        dynamicImg.src = "./hold.png";
         
 
         setTimeout(() => {
             text.innerText = 'Breathe Out';
             container.className = 'container shrink';
-            document.getElementById('dynamicImg').src = "./out.png";
+            dynamicImg.src = "./out.png";
 
         }, holdTime);
     }, breatheTime);

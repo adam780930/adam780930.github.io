@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Fetch</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="disclaimer">DISCLAIMER: Not providing any services, please do not share this link.
+    </div>
+    <main>
+        <div class="box">
+            <h4>Name:</h4>
+            <p id="name" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Vision:</h4>
+            <p id="vision" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Weapon:</h4>
+            <p id="weapon" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Nation:</h4>
+            <p id="nation" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Affiliation:</h4>
+            <p id="affiliation" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Birthday:</h4>
+            <p id="bday" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Passive Talents:</h4>
+            <p id="passive" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Rarity:</h4>
+            <p id="rarity" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Title:</h4>
+            <p id="title" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Skill Talents:</h4>
+            <p id="skill" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Constellations:
+            </h4>
+            <p id="constellation" class="info"></p>
+            <p id="constellations" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Portrait:</h4>
+            <img id="picture" src="">
+        </div>
+
+    </main>
+
+    <select id="selectChara" onchange="selectName(event)">
+        <option>Choose a character</option>
+    </select>
+
+    <input id="charName" type="text" name="charName" class="charName" onfocus="this.value=''"
+        placeholder="enter a character name">
+
+
+
+    <form>
+        <input type="button" value="Return Home" onclick="history.back()">
+    </form>
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

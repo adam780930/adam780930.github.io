@@ -1,0 +1,88 @@
+
+body {
+	margin: 0;
+}
+
+.grid-container {
+  width: 100vw;
+	height: 100vh;
+  display: grid;
+  position: fixed;
+  justify-content: center;
+	justify-items: center;
+  align-content: center;
+	align-items: center;
+  grid-template-columns: auto auto auto;
+}
+  
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+
+#currentTurn {
+  top: 10%;
+  left: 47%;
+  font-size: 3rem;
+  text-align: center;
+  position: fixed;
+  justify-content: center;
+	justify-items: center;
+  align-content: center;
+	align-items: center;
+}
+
+#menu {
+  top:0;
+  left:0;
+  position: absolute;
+  display:relative;
+  justify-content: center;
+	justify-items: center;
+  align-content: center;
+	align-items: center;
+}
+
+.grid-item:nth-child(1), .grid-item:nth-child(2), .grid-item:nth-child(3) {
+  border-top: none;
+}
+  
+.grid-item:nth-child(1), .grid-item:nth-child(4), .grid-item:nth-child(7) {
+  border-left: none;
+}
+  
+.grid-item:nth-child(3), .grid-item:nth-child(6), .grid-item:nth-child(9) {
+  border-right: none;
+}
+  
+.grid-item:nth-child(7), .grid-item:nth-child(8), .grid-item:nth-child(9) {
+  border-bottom: none;
+}
+  
+.grid-item.cross, .grid-item.circle {
+  cursor: not-allowed;
+}
+
+.cross {
+  height: 100px;
+  width: 100px;
+}
+
+.cross:after {
+  position:relative;
+  content:"\d7";
+  font-size:177px;
+  color:black;
+  font-weight:bold;
+  top:-53px;
+  left:-2px;
+}
+
+.circle {
+  background: radial-gradient(black 45%, transparent 45%);
+}

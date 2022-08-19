@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to eat</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div>
+        <h1>WIP</h1>
+    </div>
+    <div id="title" class="title">
+        <h1>What to eat?!</h1>
+
+        <div class="dayMenu">
+            <ul>
+                <li>Sunday</li>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+            </ul>
+        </div>
+
+        <select id="selectedMeal" onchange="">
+            <option>Which meal is it?</option>
+        </select>
+
+        <button id="generate">
+            Generate option
+        </button><br>
+        <input type="checkbox" id="includeFastfood">
+        <label for="includeFastfood" class="includeFastfood"> Include fast food</label>
+    </div>
+    <div>
+        <h2>
+            We are having:
+        </h2>
+        <h2 id="food" class="food">
+            ...
+        </h2>
+    </div>
+
+    <form>
+        <input type="button" value="Return Home" onclick="history.back()">
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

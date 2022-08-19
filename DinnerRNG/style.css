@@ -1,0 +1,70 @@
+* { 
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('mainbg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+h1 {
+    text-align: center;
+   
+}
+
+.title {
+    display:absolute;
+    text-align: center;
+    margin-top: 200px;
+    font-size: 3rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center; 
+    display: flex;
+}
+  
+li {
+    float: left;
+    display: block;
+    color: white;
+    background-color: grey;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    min-width: 10%;
+    max-width: 100%;
+}
+
+.dayMenu {
+    margin: 0 auto;
+    width: 25%;
+    border: 1px solid red;
+    padding: 10px;
+    
+}
+
+.daySelected {
+    background-color: black;
+}
+
+.includeFastfood {
+    font-size: 1rem;
+}
+
+form {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

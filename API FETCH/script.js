@@ -13,59 +13,99 @@ const skill = document.getElementById("skill");
 const constellations = document.getElementById("constellations");
 const title = document.getElementById("title");
 const openImg = document.getElementById("picture");
-
 const select = document.getElementById("selectChara");
 const options = [
   "albedo",
+  "alhaitham",
   "aloy",
   "amber",
+  "arataki-itto",
+  "arlecchino",
   "ayaka",
   "ayato",
+  "baizhu",
   "barbara",
   "beidou",
   "bennett",
+  "candace",
+  "charlotte",
+  "chevreuse",
+  "chiori",
   "chongyun",
+  "clorinde",
+  "collei",
+  "cyno",
+  "dehya",
   "diluc",
   "diona",
+  "dori",
+  "emilie",
   "eula",
+  "faruzan",
   "fischl",
+  "freminet",
+  "furina",
+  "gaming",
   "ganyu",
   "gorou",
-  "hu tao",
-  "itto",
+  "hu-tao",
   "jean",
+  "kachina",
   "kaeya",
+  "kaveh",
   "kazuha",
   "keqing",
+  "kinich",
+  "kirara",
   "klee",
   "kokomi",
-  "kuki",
+  "kuki-shinobu",
+  "layla",
   "lisa",
+  "lynette",
+  "lyney",
+  "mika",
   "mona",
+  "mualani",
+  "nahida",
+  "navia",
+  "neuvillette",
+  "nilou",
   "ningguang",
   "noelle",
   "qiqi",
-  "raiden Shogun",
+  "raiden",
   "razor",
   "rosaria",
   "sara",
   "sayu",
+  "sethos",
   "shenhe",
+  "shikanoin-heizou",
+  "sigewinne",
   "sucrose",
   "tartaglia",
   "thoma",
-  "traveller (male)",
-  "traveller (female)",
+  "tighnari",
+  "traveler-anemo",
+  "traveler-dendro",
+  "traveler-electro",
+  "traveler-geo",
+  "traveler-hydro",
   "venti",
+  "wanderer",
+  "wriothesley",
   "xiangling",
+  "xianyun",
   "xiao",
   "xingqiu",
   "xinyan",
-  "yae",
+  "yae-miko",
   "yanfei",
+  "yaoyao",
   "yelan",
   "yoimiya",
-  "yun jin",
+  "yun-jin",
   "zhongli",
 ];
 
@@ -76,101 +116,19 @@ for (var i = 0; i < options.length; i++) {
   el.value = opt;
   select.appendChild(el);
 }
-
 // run script when a name is selected
 function selectName(e) {
   document.getElementById("charName").value = e.target.value;
   loadChar(e);
 }
-
 // Event listener for manual input
-
 charName.addEventListener("keypress", (e) => {
   if (e.keyCode === 13) {
     loadChar(e);
   }
 });
-
-let charData;
-loadInfo();
-
-async function loadInfo() {
-  const response = await fetch(`https://gsi.fly.dev/characters?limit=1000`);
-  const data = await response.json();
-  charData = data;
-  return data;
-}
-
 function loadChar(e) {
-  let charId;
-  (async function () {
-    let cName = charName.value;
-    console.log(cName, charData.results);
-    charId = charData.results.find((name) => name.name === cName);
-    console.log(charId);
-  })();
-
   e.preventDefault();
-  loadingText();
-  getInfo();
-
-  function getInfo() {
-    const star = "★";
-    const imgLink = `https://genshin.jmp.blue/characters/${charId.name.charAt(0).toLowerCase() + charId.name.substr(1)}/card`;
-    console.log(charId.name);
-    fetch(`https://gsi.fly.dev/characters/${charId.id}`)
-      .then((res) => res.json())
-      .then((character) => {
-        data = character.result;
-        name.innerHTML = data.name;
-        validNameChecker();
-        vision.innerHTML = data.vision;
-        weapon.innerHTML = data.weapon;
-        rarity.innerHTML = star.repeat(data.rarity.charAt(0));
-        nation.innerHTML = data.region;
-        affiliation.innerHTML = data.affiliation;
-        bday.innerHTML = data.birthday;
-        constellation.innerHTML = data.constellation;
-        title.innerHTML = data.title;
-        skill.innerHTML = data.category;
-        passive.innerHTML = data.model_type;
-
-        changeTitle();
-        document.getElementById("picture").src = imgLink;
-      });
-  }
-}
-
-openImg.addEventListener("click", () =>
-  window.open(document.getElementById("picture").src)
-);
-
-function validNameChecker() {
-  if (name.innerHTML === "undefined") {
-    // alert("Please enter a valid character name");
-    name.innerHTML = "<em>...</em>";
-    vision.innerHTML = "<em>...</em>";
-    weapon.innerHTML = "<em>...</em>";
-    nation.innerHTML = "<em>...</em>";
-    affiliation.innerHTML = "<em>...</em>";
-    bday.innerHTML = "<em>...</em>";
-    constellation.innerHTML = "<em>...</em>";
-    passive.innerHTML = "<em>...</em>";
-    rarity.innerHTML = "<em>...</em>";
-    picture.innerHTML = "";
-    skill.innerHTML = "<em>...</em>";
-    title.innerHTML = "<em>...</em>";
-    console.log("failed to retrieve data");
-  }
-}
-
-function changeTitle() {
-  if (title.innerHTML === "undefined") {
-    title.innerHTML = "None";
-  }
-}
-
-function loadingText() {
   name.innerHTML = "<em>Loading...</em>";
   vision.innerHTML = "<em>Loading...</em>";
   weapon.innerHTML = "<em>Loading...</em>";
@@ -182,5 +140,91 @@ function loadingText() {
   rarity.innerHTML = "<em>Loading...</em>";
   picture.innerHTML = "<em>Loading...</em>";
   skill.innerHTML = "<em>Loading...</em>";
+  constellations.innerHTML = "<em>Loading...</em>";
   title.innerHTML = "<em>Loading...</em>";
+  getInfo();
+  function getInfo() {
+    const star = "★";
+    const charN = charName.value.toLowerCase();
+    const imgLink = `https://genshin.jmp.blue/characters/${charN}/portrait.png`;
+    let charaData = fetch(`https://genshin.jmp.blue/characters/${charN}/`)
+      .then((response) => response.json())
+      .then((character) => {
+        name.innerHTML = character["name"];
+        validNameChecker();
+        vision.innerHTML = character.vision;
+        weapon.innerHTML = character["weapon"];
+        nation.innerHTML = character["nation"];
+        affiliation.innerHTML = character["affiliation"];
+        bday.innerHTML = character["birthday"].substr(5);
+        constellation.innerHTML = character["constellation"];
+        passive.innerHTML =
+          "1. " +
+          character["passiveTalents"][0].name +
+          `<br>` +
+          "2. " +
+          character["passiveTalents"][1].name +
+          `<br>` +
+          "3. " +
+          character["passiveTalents"][2].name;
+        rarity.innerHTML = star.repeat(character["rarity"]);
+        skill.innerHTML =
+          "1. " +
+          character["skillTalents"][0].name +
+          `<br>` +
+          "2. " +
+          character["skillTalents"][1].name +
+          `<br>` +
+          "3. " +
+          character["skillTalents"][2].name;
+        constellations.innerHTML =
+          "1. " +
+          character["constellations"][0].name +
+          `<br>` +
+          "2. " +
+          character["constellations"][1].name +
+          `<br>` +
+          "3. " +
+          character["constellations"][2].name +
+          `<br>` +
+          "4. " +
+          character["constellations"][3].name +
+          `<br>` +
+          "5. " +
+          character["constellations"][4].name +
+          `<br>` +
+          "6. " +
+          character["constellations"][5].name;
+        title.innerHTML = character["title"];
+        changeTitle();
+        document.getElementById("picture").src = imgLink;
+      });
+  }
+}
+openImg.addEventListener("click", () =>
+  window.open(document.getElementById("picture").src)
+);
+function validNameChecker() {
+  if (name.innerHTML === "undefined") {
+    alert("Please enter a valid character name");
+    name.innerHTML = "<em>...</em>";
+    vision.innerHTML = "<em>...</em>";
+    weapon.innerHTML = "<em>...</em>";
+    nation.innerHTML = "<em>...</em>";
+    affiliation.innerHTML = "<em>...</em>";
+    bday.innerHTML = "<em>...</em>";
+    constellation.innerHTML = "<em>...</em>";
+    passive.innerHTML = "<em>...</em>";
+    rarity.innerHTML = "<em>...</em>";
+    picture.innerHTML = "";
+    skill.innerHTML = "<em>...</em>";
+    constellations.innerHTML = "<em>...</em>";
+    title.innerHTML = "<em>...</em>";
+    console.log("failed to retrieve data");
+  }
+}
+function changeTitle() {
+  if (title.innerHTML === "undefined") {
+    title.innerHTML = "None";
+  }
 }
